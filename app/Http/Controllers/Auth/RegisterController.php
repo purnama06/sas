@@ -7,6 +7,7 @@ use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use App\Applicant;
 
 class RegisterController extends Controller
 {
@@ -28,7 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -49,9 +50,15 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'name' => ['required', 'string', 'max:191'],
+            'email' => ['required', 'string', 'email', 'max:191', 'unique:users'],
+            'password' => ['required', 'string', 'min:6', 'confirmed'],
+            'id_type' => ['required'],
+            'id_number' => ['required'],
+            'name' => ['required'],
+            'mobile_no' => ['required'],
+            'username' => ['required', 'unique:users'],
+            'date_of_birth' => ['required']
         ]);
     }
 
@@ -63,10 +70,25 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+    
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+            'password' => $data['password'],
+            'username' => $data['username'],            
+            'level' => 2
         ]);
+
+        Applicant::create([
+            'id_type' => $data['id_type'],
+            'id_number' => $data['id_number'],
+            'mobile_no' => $data['mobile_no'],
+            'date_of_birth' => $data['date_of_birth'],
+            'user_id' => $user->id
+        ]);
+
+        return $user;
+
+        
     }
 }
