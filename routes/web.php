@@ -11,6 +11,28 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', 'ListingController@home')->name('home');
+
+Auth::routes();
+
+Route::middleware('auth')->group(function(){
+    Route::get('dashboard', function(){
+        if(Auth::user()->level == 2) {
+            return redirect('/');
+        }
+        return view('admin.dashboard');
+    })->name('dashboard');
+
+    Route::middleware('sas_admin')->group(function(){
+        Route::resource('qualification', 'QualificationController');
+        Route::resource('university', 'UniversityController');
+        Route::resource('user', 'UserController');
+    });
+
+    Route::middleware('univ_admin')->group(function(){
+        Route::resource('programme', 'ProgrammeController');
+    });
 });
+
+Route::get('university/{id}/programme', 'ListingController@universityProgramme')->name('university.programme');
+Route::get('programme/{id}/detail', 'ListingController@detailProgramme')->name('programme.detail');
