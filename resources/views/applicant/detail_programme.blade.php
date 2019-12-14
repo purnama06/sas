@@ -29,8 +29,15 @@ Detail Programmes {{ $programme->programme_name }}
                                 <td>{!! $programme->description !!}</td>
                             </tr>                            
                         </table>
-                        <a href="#" class="btn btn-sm btn-success float-right">Apply for this programme</a>
-
+                        @guest
+                            <a href="{{ route('login') }}" class="btn btn-sm btn-success float-right">Apply for this programme</a>
+                        @else 
+                        <form action="{{ route('apply', $programme->id) }}" method="post">
+                            @csrf
+                            <button type="submit" class="btn btn-success btn-sm float-right" onclick="return confirm('Are you sure want to apply for this programme?')">Apply for this programme</button>
+                        </form>
+                            
+                        @endguest
                     </div>
                 </div>
             </div>

@@ -20,7 +20,7 @@
                                 <a href="{{ route('qualification.index') }}" ><i class="ti-list"></i><span>Qualification</span></a>                               
                             </li>
                             <li class="{{ (urlHasPrefix('university') == true ) ? 'active' : '' }}">
-                                <a href="{{ route('university.index') }}" ><i class="fa fa-institution"></i><span>University</span></a>                               
+                                <a href="{{ route('university.index') }}" ><i class="fa fa-institution"></i><span>Universities</span></a>                               
                             </li>
                             <li class="{{ (urlHasPrefix('user') == true ) ? 'active' : '' }}">
                                 <a href="{{ route('user.index') }}" ><i class="fa fa-users"></i><span>University Admin</span></a>                               

@@ -56,6 +56,7 @@
                                 <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; transform: translate3d(59px, 45px, 0px); top: 0px; left: 0px; will-change: transform;">                            
                                     <form action="{{ route('logout') }}" method="post">
                                         @csrf
+                                        <a class="dropdown-item" href="{{ route('my-qualification.index') }}">My Qualification</a>
                                         <button class="dropdown-item" type="submit">Logout</button>
                                     </form>
                                 </div>

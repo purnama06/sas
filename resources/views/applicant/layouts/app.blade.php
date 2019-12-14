@@ -42,6 +42,7 @@
         @include('applicant.layouts.header')
 
         <div class="main-content-innder">
+            @include('applicant.layouts.flash')
             @yield('content')
         </div>
 

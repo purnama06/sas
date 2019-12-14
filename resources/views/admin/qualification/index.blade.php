@@ -27,6 +27,7 @@ Qualifications
                                 <th>Maximum Score</th>
                                 <th>Result Calc. Description</th>
                                 <th>Grade List</th>
+                                <th>Status</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -39,6 +40,7 @@ Qualifications
                                 <td>{{ $row->maximum_score }}</td>
                                 <td>{{ $row->result_calc_description }}</td>
                                 <td>{!! $row->grade_list !!}</td>
+                                <td>{!! $row->getStatus() !!}</td>
                                 <td>
                                     <form action="{{ route('qualification.destroy', $row->id) }}" method="post">
                                         <ul class="d-flex justify-content-center">

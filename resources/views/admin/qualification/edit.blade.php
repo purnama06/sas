@@ -36,7 +36,17 @@ Edit Qualification {{ $qualification->qualification_name }}
 
                         <div class="form-group">
                             <label class="col-form-label">Grade List</label>
-                            <textarea class="form-control" name="grade_list">{{ $qualification->grade_list }}</textarea>
+                            <textarea class="form-control" name="grade_list">{{ $qualification->grade_list }}</textarea>                
+                        </div>
+
+                        <div class="form-group">
+                            <label for="">Status</label>
+                            <select name="status" class="form-control">
+                                <option value="#"> - Select Status - </option>
+                               
+                                <option value="1" {{ $qualification->status == 1 ? 'selected' : '' }} >Verified</option>
+                                <option value="0" {{ $qualification->status == 0 ? 'selected' : '' }} >Not Verified</option>
+                            </select>
                         </div>
                        
                         <div class="form-group">

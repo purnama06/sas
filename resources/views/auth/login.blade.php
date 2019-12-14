@@ -36,17 +36,21 @@ Login
                         @enderror
                     </div>
                     <div class="row mb-4 rmber-area">
-                        <div class="col-6">
+                        <div class="col-12">
                             <div class="custom-control custom-checkbox mr-sm-2">
                                 <input type="checkbox" class="custom-control-input" id="customControlAutosizing">
-                                <label class="custom-control-label" for="customControlAutosizing">Remember Me</label>
-                            </div>
+                                <label class="custom-control-label" for="customControlAutosizing">Remember Me</label>  
+                                <hr>   
+                                <a href="{{ route('register') }}">Create an account!</a>                           
+                            </div>                           
                         </div>
                         
                     </div>
                     <div class="submit-btn-area">
                         <button id="form_submit" type="submit">Submit <i class="ti-arrow-right"></i></button>                            
                     </div>
+
+                   
                 
                     
                 </div>

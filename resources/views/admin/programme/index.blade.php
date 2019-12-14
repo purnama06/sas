@@ -26,6 +26,7 @@ Programmes
                                 <th>Programme Name</th>                                
                                 <th>Description</th>
                                 <th>Closing Date</th>
+                                <th>Applicants</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -37,9 +38,11 @@ Programmes
                                 <td>{{ $row->programme_name }}</td>
                                 <td>{{ $row->description }}</td>
                                 <td>{{ $row->closing_date }}</td>
+                                <td class="text-center">{{ $row->applications()->count() }}</td>
                                 <td>
                                     <form action="{{ route('programme.destroy', $row->id) }}" method="post">
                                         <ul class="d-flex">
+                                           <li class="mr-3"><a href="{{ route('applicants', $row->id) }}" class="text-success" title="See Applicants"><i class="fa fa-user"></i></a></li>
                                             <li class="mr-3"><a href="{{ route('programme.edit', $row->id) }}" class="text-secondary"><i class="fa fa-edit"></i></a></li>
                                             @csrf
                                             @method('delete')

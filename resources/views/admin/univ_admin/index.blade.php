@@ -41,7 +41,7 @@ University Admin
                                 <td>
                                     <form action="{{ route('user.destroy', $row->id) }}" method="post">
                                         <ul class="d-flex">
-                                            <li class="mr-3"><a href="{{ route('user.edit', $row->id) }}" class="text-secondary"><i class="fa fa-edit"></i></a></li>
+                                            <!-- <li class="mr-3"><a href="{{ route('user.edit', $row->id) }}" class="text-secondary"><i class="fa fa-edit"></i></a></li> -->
                                             @csrf
                                             @method('delete')
                                             <li><button type="submit" class="text-danger btn-submit" onclick="return confirm('Are you sure want to delete this data?')" ><i class="ti-trash"></i></button></li>

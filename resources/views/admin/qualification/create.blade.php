@@ -37,6 +37,16 @@ Add New Qualifications
                             <label class="col-form-label">Grade List</label>
                             <textarea class="form-control" name="grade_list">{{ old('grade_list') }}</textarea>
                         </div>
+
+                        <div class="form-group">
+                            <label for="">Status</label>
+                            <select name="status" class="form-control">
+                                <option value="#"> - Select Status - </option>
+                               
+                                <option value="1" {{ old('status') == 1 ? 'selected' : '' }} >Verified</option>
+                                <option value="0" {{ old('status') == 0 ? 'selected' : '' }} >Not Verified</option>
+                            </select>
+                        </div>
                        
                         <div class="form-group">
                             <input type="submit" class="btn btn-success float-right" value="Save">
