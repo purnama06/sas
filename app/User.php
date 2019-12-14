@@ -31,5 +31,10 @@ class User extends Authenticatable
         return $this->belongsToMany('App\University', 'uni_admin')->withTimestamps();
     }
 
+    public function applicant()
+    {
+        return $this->hasOne('App\Applicant');
+    }
+
 
 }

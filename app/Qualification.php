@@ -11,6 +11,16 @@ class Qualification extends Model
         'minimum_score',
         'maximum_score',
         'result_calc_description',
-        'grade_list'
+        'grade_list',
+        'status'
     ];
+
+    public function getStatus()
+    {
+        if($this->status == 0){
+            return '<span class="badge badge-danger">Not Verified</span>';
+        } else {
+            return '<span class="badge badge-success">Verified</span>';
+        }
+    }
 }

@@ -16,4 +16,9 @@ class Programme extends Model
     {
         return $this->belongsToMany('App\University', 'uni_program', 'programme_id', 'university_id')->withTimestamps();
     }
+
+    public function applications()
+    {
+        return $this->hasMany('App\Application');
+    }
 }
